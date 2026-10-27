@@ -166,20 +166,21 @@ searchButton.addEventListener("click", () => {
   const card = document.createElement("article");
   card.className = "song-card";
 
+
   // ジャケット画像
   const cover = document.createElement("img");
   cover.className = "song-cover";
-cover.src = song.image || "default-cover.png";
 
-cover.onerror = () => {
-  cover.onerror = null;
-  cover.src = "default-cover.png";
-};
-cover.onerror = () => {
-  cover.onerror = null;
-  cover.src = "default-cover.png";
-};  cover.alt = `${song.title}のジャケット画像`;
+  // imagesフォルダから画像を読み込む
+  cover.src = `images/${song.image}`;
+  cover.alt = `${song.title}のジャケット画像`;
   cover.loading = "lazy";
+
+  // 画像が読み込めない場合は代替画像を表示
+  cover.onerror = () => {
+    cover.onerror = null;
+    cover.src = "images/default-cover.png";
+  };
 
   // 曲名
   const title = document.createElement("h3");
