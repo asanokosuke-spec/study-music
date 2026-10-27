@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Study Music</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  
+<header class="site-header">
+  <p class="eyebrow">YOUR STUDY COMPANION</p>
+  <h1>Study Music</h1>
+  <p>自分に合った音楽で、勉強をもっと快適に。</p>
+</header>
+
+
+  <main>
+    
+<section class="search-panel">
+  <h2>どんな音楽を探す？</h2>
+  <p class="section-description">
+    勉強スタイルに合わせて音楽を選ぼう。
+  </p>
+
+  <div class="filter-grid">
+    <div class="filter-item">
+      <label for="subject">勉強する教科</label>
+      <select id="subject">
+        <option value="国語">国語</option>
+        <option value="数学">数学</option>
+        <option value="英語">英語</option>
+      </select>
+    </div>
+
+    <div class="filter-item">
+      <label for="task">勉強の種類</label>
+      <select id="task">
+        <option value="暗記">暗記</option>
+        <option value="読解">長文読解</option>
+        <option value="計算">計算問題</option>
+        <option value="テスト">テスト問題</option>
+      </select>
+    </div>
+
+    <div class="filter-item">
+      <label for="tempo">テンポ</label>
+      <select id="tempo">
+        <option value="any">指定しない</option>
+        <option value="slow">遅め</option>
+        <option value="fast">速め</option>
+      </select>
+    </div>
+
+    <div class="filter-item">
+      <label for="genre">ジャンル</label>
+      <select id="genre">
+        <option value="any">指定しない</option>
+        <option value="J-POP">J-POP</option>
+        <option value="洋楽">洋楽</option>
+      </select>
+    </div>
+
+    <div class="filter-item">
+      <label for="vocal">ボーカル</label>
+      <select id="vocal">
+        <option value="any">指定しない</option>
+        <option value="男性">男性</option>
+        <option value="女性">女性</option>
+      </select>
+    </div>
+  </div>
+
+  <button id="searchButton">おすすめ曲を探す</button>
+  
+<!-- 検索結果 -->
+<section class="results-panel">
+  <h2>おすすめの音楽</h2>
+  
+<div class="view-switch">
+  <button id="showAllButton" class="active">すべての曲</button>
+  <button id="showFavoritesButton">♥ お気に入り</button>
+</div>
+
+<p id="resultMessage"></p>
+<div id="results"></div>
+
+  <p id="resultMessage">条件を選んで曲を探してみよう！</p>
+  <div id="results"></div>
+</section>
+
+</section>
+
+  </main>
+
+  <footer>
+    <p>Study Music｜音楽と学習について考える探究プロジェクト</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
