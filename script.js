@@ -10,7 +10,7 @@ const songs = [
     genre: "J-POP",
     vocal: "女性",
     tasks: ["暗記", "読解"],
-    image: "images/song-a.jpg",
+    image: "song-a.jpg",
     url: "https://www.youtube.com/"
   },
   {
@@ -21,7 +21,7 @@ const songs = [
     genre: "J-POP",
     vocal: "男性",
     tasks: ["計算", "テスト"],
-    image: "images/song-b.jpg",
+    image: "song-b.jpg",
     url: "https://www.youtube.com/"
   },
   {
@@ -32,7 +32,7 @@ const songs = [
     genre: "洋楽",
     vocal: "男性",
     tasks: ["暗記", "読解"],
-    image: "images/song-c.jpg",
+    image: "song-c.jpg",
     url: "https://open.spotify.com/"
   },
   {
@@ -43,7 +43,7 @@ const songs = [
     genre: "洋楽",
     vocal: "女性",
     tasks: ["計算", "テスト"],
-    image: "images/song-d.jpg",
+    image: "song-d.jpg",
     url: "https://open.spotify.com/"
   },
   {
@@ -54,7 +54,7 @@ const songs = [
     genre: "J-POP",
     vocal: "男性",
     tasks: ["計算", "テスト"],
-    image: "images/song-e.jpg",
+    image: "song-e.jpg",
     url: "https://open.spotify.com/"
   },
   {
@@ -65,7 +65,7 @@ const songs = [
     genre: "J-POP",
     vocal: "女性",
     tasks: ["計算", "テスト"],
-    image: "images/song-f.jpg",
+    image: "song-f.jpg",
     url: "https://open.spotify.com/"
   },
   {
@@ -76,7 +76,7 @@ const songs = [
     genre: "J-POP",
     vocal: "男性",
     tasks: ["計算", "テスト"],
-    image: "images/song-g.jpg",
+    image: "song-g.jpg",
     url: "https://open.spotify.com/"
   },
   {
@@ -87,7 +87,7 @@ const songs = [
     genre: "J-POP",
     vocal: "女性",
     tasks: ["計算", "テスト"],
-    image: "images/song-h.jpg",
+    image: "song-h.jpg",
     url: "https://open.spotify.com/"
   }
 ];
@@ -169,15 +169,15 @@ searchButton.addEventListener("click", () => {
   // ジャケット画像
   const cover = document.createElement("img");
   cover.className = "song-cover";
-cover.src = song.image || "images/default-cover.jpg";
+cover.src = song.image || "default-cover.png";
 
 cover.onerror = () => {
   cover.onerror = null;
-  cover.src = "images/default-cover.jpg";
+  cover.src = "default-cover.png";
 };
 cover.onerror = () => {
   cover.onerror = null;
-  cover.src = "images/default-cover.jpg";
+  cover.src = "default-cover.png";
 };  cover.alt = `${song.title}のジャケット画像`;
   cover.loading = "lazy";
 
