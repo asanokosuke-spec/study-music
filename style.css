@@ -639,3 +639,290 @@ footer {
   border-color: #cbd2ff;
   font-weight: bold;
 }
+
+/* コメント欄全体 */
+.comment-section {
+  margin-top: 20px;
+  padding: 18px;
+  background: #f7f5ff;
+  border: 1px solid #e7e1ff;
+  border-radius: 16px;
+}
+
+/* コメント欄の見出し */
+.comment-section h4 {
+  margin: 0 0 14px;
+  color: #4b3b80;
+  font-size: 17px;
+}
+
+/* ニックネーム入力欄 */
+.comment-section input[type="text"] {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  padding: 11px 12px;
+  border: 1px solid #d8d1ed;
+  border-radius: 10px;
+  background: #fff;
+  font: inherit;
+}
+
+/* コメント入力欄 */
+.comment-section textarea {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  padding: 12px;
+  border: 1px solid #d8d1ed;
+  border-radius: 10px;
+  background: #fff;
+  font: inherit;
+  resize: vertical;
+}
+
+/* 入力欄を選択したとき */
+.comment-section input:focus,
+.comment-section textarea:focus {
+  outline: 2px solid #a99be8;
+  border-color: transparent;
+}
+
+/* 投稿ボタン */
+.comment-section button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 10px;
+  background: #7056c8;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.comment-section button:hover {
+  background: #5940ad;
+}
+
+.comment-section button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* コメント一覧 */
+.comment-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+/* コメント1件ずつのカード */
+.comment-item {
+  padding: 13px;
+  background: #fff;
+  border: 1px solid #ece8f5;
+  border-radius: 12px;
+  overflow-wrap: anywhere;
+}
+
+/* ニックネーム */
+.comment-item strong {
+  display: block;
+  margin-bottom: 6px;
+  color: #5940ad;
+}
+
+/* コメント本文 */
+.comment-item p {
+  margin: 0;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+/* ===== コメント欄のデザイン改善 ===== */
+
+.comment-section {
+  margin-top: 20px;
+  padding: 18px;
+  background: #f7f5ff;
+  border: 1px solid #e7e1ff;
+  border-radius: 16px;
+}
+
+.comment-section h4 {
+  margin: 0 0 16px;
+  color: #49377f;
+  font-size: 17px;
+}
+
+.comment-section input[type="text"],
+.comment-section textarea {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 12px;
+  padding: 12px 14px;
+  border: 1px solid #dcd5ef;
+  border-radius: 10px;
+  background: #fff;
+  color: #29243a;
+  font: inherit;
+}
+
+.comment-section textarea {
+  min-height: 90px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.comment-section input:focus,
+.comment-section textarea:focus {
+  outline: 2px solid #a99be8;
+  border-color: transparent;
+}
+
+.comment-section button {
+  min-height: 42px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 10px;
+  background: #7056c8;
+  color: white;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.comment-section button:hover {
+  background: #5940ad;
+}
+
+.comment-section button:active {
+  transform: scale(0.98);
+}
+
+.comment-section button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.comment-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.comment-item {
+  min-width: 0;
+  padding: 14px;
+  background: white;
+  border: 1px solid #ebe6f5;
+  border-radius: 12px;
+  overflow-wrap: anywhere;
+}
+
+.comment-item strong {
+  display: block;
+  margin-bottom: 7px;
+  color: #5940ad;
+  font-size: 14px;
+}
+
+.comment-item p {
+  margin: 0 0 12px;
+  color: #373344;
+  line-height: 1.7;
+  white-space: pre-wrap;
+}
+
+/* いいねボタン */
+.comment-section .like-button {
+  min-height: 38px;
+  padding: 7px 12px;
+  background: #f0ecff;
+  color: #6249b5;
+  border: 1px solid #ded5ff;
+  border-radius: 999px;
+  font-size: 14px;
+}
+
+.comment-section .like-button:hover {
+  background: #e4dcff;
+}
+
+.comment-section .like-button.is-liked {
+  background: #7056c8;
+  color: #fff;
+  border-color: #7056c8;
+}
+
+.like-count {
+  display: inline-block;
+  margin-left: 10px;
+  color: #706b7c;
+  font-size: 13px;
+}
+
+/* ===== スマホ対応 ===== */
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}
+
+input,
+textarea,
+button {
+  max-width: 100%;
+}
+
+@media (max-width: 600px) {
+  body {
+    margin: 0;
+    padding: 12px;
+  }
+
+  .song-card {
+    width: 100%;
+    min-width: 0;
+    padding: 14px;
+    border-radius: 14px;
+  }
+
+  .song-cover {
+    display: block;
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    margin: 0 auto 14px;
+  }
+
+  .comment-section {
+    padding: 12px;
+    margin-top: 16px;
+  }
+
+  .comment-section input[type="text"],
+  .comment-section textarea {
+    font-size: 16px;
+  }
+
+  .comment-section button {
+    min-height: 44px;
+  }
+
+  .comment-item {
+    padding: 12px;
+  }
+
+  .comment-section .like-button {
+    min-height: 40px;
+  }
+}
