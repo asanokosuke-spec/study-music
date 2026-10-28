@@ -481,9 +481,21 @@ cover.onerror = () => {
   updateFavoriteButton();
 
 
+
   // コメント欄
   const commentSection = document.createElement("section");
   commentSection.className = "comment-section";
+
+  // 開閉ボタン
+  const toggleCommentsButton = document.createElement("button");
+  toggleCommentsButton.type = "button";
+  toggleCommentsButton.className = "toggle-comments-button";
+  toggleCommentsButton.textContent = "💬 みんなのコメントを開く";
+
+  // コメント欄の中身をまとめる
+  const commentContent = document.createElement("div");
+  commentContent.className = "comment-content";
+  commentContent.hidden = true;
 
   const commentHeading = document.createElement("h4");
   commentHeading.textContent = "💬 みんなのコメント";
@@ -509,12 +521,27 @@ cover.onerror = () => {
     postComment(song, nicknameInput, commentInput, postButton);
   });
 
-  commentSection.append(
+  // 開く・閉じる
+  toggleCommentsButton.addEventListener("click", () => {
+    const isOpening = commentContent.hidden;
+    commentContent.hidden = !isOpening;
+
+    toggleCommentsButton.textContent = isOpening
+      ? "💬 コメントを閉じる"
+      : "💬 みんなのコメントを開く";
+  });
+
+  commentContent.append(
     commentHeading,
     nicknameInput,
     commentInput,
     postButton,
     commentList
+  );
+
+  commentSection.append(
+    toggleCommentsButton,
+    commentContent
   );
 
   card.append(
