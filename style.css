@@ -926,3 +926,73 @@ button {
     min-height: 40px;
   }
 }
+
+/* スマホで曲カードをコンパクトにする */
+@media (max-width: 600px) {
+  .song-card {
+    width: 100%;
+    min-width: 0;
+    padding: 14px;
+    margin: 0 0 16px;
+  }
+
+  .song-cover {
+    display: block;
+    width: 120px;
+    max-width: 100%;
+    height: 120px;
+    object-fit: cover;
+    margin: 0 auto 12px;
+  }
+
+  .song-card h3 {
+    font-size: 18px;
+    margin: 8px 0;
+    overflow-wrap: anywhere;
+  }
+
+  .song-artist,
+  .song-details {
+    font-size: 14px;
+    overflow-wrap: anywhere;
+  }
+
+  .song-card button,
+  .song-card a {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  .comment-section {
+    padding: 12px;
+  }
+}
+
+/* コメント欄の開閉ボタン */
+.toggle-comments-button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin-top: 14px;
+  border: 1px solid #ded5ff;
+  border-radius: 12px;
+  background: #f0ecff;
+  color: #5940ad;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.toggle-comments-button:hover {
+  background: #e4dcff;
+}
+
+/* 折りたたんだ内容 */
+.comment-content[hidden] {
+  display: none !important;
+}
+
+.comment-content:not([hidden]) {
+  display: block;
+  margin-top: 14px;
+}
