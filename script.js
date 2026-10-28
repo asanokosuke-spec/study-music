@@ -1,5 +1,49 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
 
 
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  query,
+  where,
+  onSnapshot,
+  serverTimestamp,
+  doc,
+  setDoc,
+  deleteDoc
+} from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
+
+
+import {
+  getAuth,
+  signInAnonymously,
+  onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDNTj1L72JASja7fZcvo2y1oRsdpauaZyk",
+  authDomain: "studymusic-8f497.firebaseapp.com",
+  projectId: "studymusic-8f497",
+  storageBucket: "studymusic-8f497.firebasestorage.app",
+  messagingSenderId: "107420583191",
+  appId: "1:107420583191:web:50a1cf5cf32288d965e352",
+  measurementId: "G-X92V43CL3N"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const auth = getAuth(app);
+
+let currentUser = null;
+
+onAuthStateChanged(auth, (user) => {
+  currentUser = user;
+});
+
+signInAnonymously(auth).catch((error) => {
+  console.error("認証エラー:", error);
+});
 
 const songs = [
   {
@@ -10,7 +54,7 @@ const songs = [
     genre: "J-POP",
     vocal: "女性",
     tasks: ["暗記", "読解"],
-    image: "song-a.jpg",
+    image: "images/song-a.jpg",
     url: "https://www.youtube.com/"
   },
   {
@@ -21,7 +65,7 @@ const songs = [
     genre: "J-POP",
     vocal: "男性",
     tasks: ["計算", "テスト"],
-    image: "song-b.jpg",
+    image: "images/song-b.jpg",
     url: "https://www.youtube.com/"
   },
   {
@@ -32,7 +76,7 @@ const songs = [
     genre: "洋楽",
     vocal: "男性",
     tasks: ["暗記", "読解"],
-    image: "song-c.jpg",
+    image: "images/song-c.jpg",
     url: "https://open.spotify.com/"
   },
   {
@@ -43,7 +87,7 @@ const songs = [
     genre: "洋楽",
     vocal: "女性",
     tasks: ["計算", "テスト"],
-    image: "song-d.jpg",
+    image: "images/song-d.jpg",
     url: "https://open.spotify.com/"
   },
   {
@@ -54,7 +98,7 @@ const songs = [
     genre: "J-POP",
     vocal: "男性",
     tasks: ["計算", "テスト"],
-    image: "song-e.jpg",
+    image: "images/song-e.jpg",
     url: "https://open.spotify.com/"
   },
   {
@@ -65,7 +109,7 @@ const songs = [
     genre: "J-POP",
     vocal: "女性",
     tasks: ["計算", "テスト"],
-    image: "song-f.jpg",
+    image: "images/song-f.jpg",
     url: "https://open.spotify.com/"
   },
   {
@@ -76,7 +120,7 @@ const songs = [
     genre: "J-POP",
     vocal: "男性",
     tasks: ["計算", "テスト"],
-    image: "song-g.jpg",
+    image: "images/song-g.jpg",
     url: "https://open.spotify.com/"
   },
   {
@@ -87,7 +131,7 @@ const songs = [
     genre: "J-POP",
     vocal: "女性",
     tasks: ["計算", "テスト"],
-    image: "song-h.jpg",
+    image: "images/song-h.jpg",
     url: "https://open.spotify.com/"
   }
 ];
@@ -115,6 +159,202 @@ function saveFavorites() {
 }
 
 const searchButton = document.querySelector("#searchButton");
+
+const commentsCollection = collection(db, "comments");
+
+// コメントを表示する
+
+function displayComments(song, commentList) {
+  const commentsQuery = query(
+    commentsCollection,
+    where("songId", "==", song.title)
+  );
+
+  const unsubscribeComments = onSnapshot(
+    commentsQuery,
+    (snapshot) => {
+      // 古いいいねの監視を停止
+      commentList._unsubscribeLikes?.forEach(unsubscribe => {
+        unsubscribe();
+      });
+      commentList._unsubscribeLikes = [];
+
+      commentList.replaceChildren();
+
+      const comments = snapshot.docs
+        .map(documentSnapshot => ({
+          id: documentSnapshot.id,
+          ...documentSnapshot.data()
+        }))
+        .sort((a, b) => {
+          const timeA = a.createdAt?.toMillis?.() ?? 0;
+          const timeB = b.createdAt?.toMillis?.() ?? 0;
+          return timeB - timeA;
+        });
+
+      if (comments.length === 0) {
+        const message = document.createElement("p");
+        message.textContent = "まだコメントはありません。";
+        commentList.append(message);
+        return;
+      }
+
+      comments.forEach(comment => {
+        const item = document.createElement("div");
+        item.className = "comment-item";
+
+        const nickname = document.createElement("strong");
+        nickname.textContent = comment.nickname;
+
+        const text = document.createElement("p");
+        text.textContent = comment.text;
+
+        // いいねボタン
+        const likeButton = document.createElement("button");
+        likeButton.type = "button";
+        likeButton.className = "like-button";
+        likeButton.textContent = "♡ いいね";
+
+        // いいね数
+        const likeCount = document.createElement("span");
+        likeCount.className = "like-count";
+        likeCount.textContent = "0 いいね";
+
+        const likeRefForCurrentUser = () => {
+          if (!currentUser) return null;
+
+          return doc(
+            db,
+            "comments",
+            comment.id,
+            "likes",
+            currentUser.uid
+          );
+        };
+
+        likeButton.addEventListener("click", async () => {
+          if (!currentUser) {
+            alert("接続準備中です。少し待ってから試してね。");
+            return;
+          }
+
+          const alreadyLiked =
+            likeButton.dataset.liked === "true";
+
+          likeButton.disabled = true;
+
+          try {
+            const likeRef = likeRefForCurrentUser();
+
+            if (alreadyLiked) {
+              await deleteDoc(likeRef);
+            } else {
+              await setDoc(likeRef, {
+                createdAt: serverTimestamp()
+              });
+            }
+          } catch (error) {
+            console.error("いいねエラー:", error);
+            alert("いいねを更新できませんでした。");
+          } finally {
+            likeButton.disabled = false;
+          }
+        });
+
+        // いいね数と、自分が押したかどうかを監視
+        const likesCollection = collection(
+          db,
+          "comments",
+          comment.id,
+          "likes"
+        );
+
+        const unsubscribeLikes = onSnapshot(
+          likesCollection,
+          (likesSnapshot) => {
+            likeCount.textContent =
+              `${likesSnapshot.size} いいね`;
+
+            const liked = currentUser
+              ? likesSnapshot.docs.some(
+                  like => like.id === currentUser.uid
+                )
+              : false;
+
+            likeButton.dataset.liked = String(liked);
+            likeButton.textContent = liked
+              ? "♥ いいね済み"
+              : "♡ いいね";
+
+            likeButton.classList.toggle("is-liked", liked);
+          },
+          error => {
+            console.error("いいね取得エラー:", error);
+          }
+        );
+
+        commentList._unsubscribeLikes.push(unsubscribeLikes);
+
+        item.append(
+          nickname,
+          text,
+          likeButton,
+          likeCount
+        );
+
+        commentList.append(item);
+      });
+    },
+    error => {
+      console.error("コメント取得エラー:", error);
+      commentList.textContent =
+        "コメントを読み込めませんでした。";
+    }
+  );
+
+  return unsubscribeComments;
+}
+
+
+// コメントを投稿する
+async function postComment(song, nicknameInput, commentInput, postButton) {
+  const nickname = nicknameInput.value.trim();
+  const text = commentInput.value.trim();
+
+  if (!currentUser) {
+    alert("接続準備中です。少し待ってから試してね。");
+    return;
+  }
+
+  if (!nickname || !text) {
+    alert("ニックネームとコメントを入力してね。");
+    return;
+  }
+
+  if (nickname.length > 30 || text.length > 300) {
+    alert("ニックネームは30文字、コメントは300文字以内にしてね。");
+    return;
+  }
+
+  postButton.disabled = true;
+
+  try {
+    await addDoc(commentsCollection, {
+      songId: song.title,
+      nickname,
+      text,
+      createdAt: serverTimestamp()
+    });
+
+    commentInput.value = "";
+  } catch (error) {
+    console.error("コメント投稿エラー:", error);
+    alert("投稿できませんでした。ブラウザのコンソールを確認してね。");
+  } finally {
+    postButton.disabled = false;
+  }
+}
+
 const subjectInput = document.querySelector("#subject");
 const taskInput = document.querySelector("#task");
 const tempoInput = document.querySelector("#tempo");
@@ -166,21 +406,20 @@ searchButton.addEventListener("click", () => {
   const card = document.createElement("article");
   card.className = "song-card";
 
-
   // ジャケット画像
   const cover = document.createElement("img");
   cover.className = "song-cover";
+cover.src = song.image || "images/default-cover.jpg";
 
-  // imagesフォルダから画像を読み込む
-  cover.src = `images/${song.image}`;
-  cover.alt = `${song.title}のジャケット画像`;
+cover.onerror = () => {
+  cover.onerror = null;
+  cover.src = "images/default-cover.jpg";
+};
+cover.onerror = () => {
+  cover.onerror = null;
+  cover.src = "images/default-cover.jpg";
+};  cover.alt = `${song.title}のジャケット画像`;
   cover.loading = "lazy";
-
-  // 画像が読み込めない場合は代替画像を表示
-  cover.onerror = () => {
-    cover.onerror = null;
-    cover.src = "images/default-cover.png";
-  };
 
   // 曲名
   const title = document.createElement("h3");
@@ -241,15 +480,57 @@ searchButton.addEventListener("click", () => {
 
   updateFavoriteButton();
 
-card.append(
-  cover,
-  title,
-  artist,
-  details,
-  favoriteButton,
-  link
-);
+
+  // コメント欄
+  const commentSection = document.createElement("section");
+  commentSection.className = "comment-section";
+
+  const commentHeading = document.createElement("h4");
+  commentHeading.textContent = "💬 みんなのコメント";
+
+  const nicknameInput = document.createElement("input");
+  nicknameInput.type = "text";
+  nicknameInput.placeholder = "ニックネーム（30文字以内）";
+  nicknameInput.maxLength = 30;
+
+  const commentInput = document.createElement("textarea");
+  commentInput.placeholder = "この曲で勉強した感想を書こう！（300文字以内）";
+  commentInput.maxLength = 300;
+  commentInput.rows = 3;
+
+  const postButton = document.createElement("button");
+  postButton.type = "button";
+  postButton.textContent = "コメントを投稿";
+
+  const commentList = document.createElement("div");
+  commentList.className = "comment-list";
+
+  postButton.addEventListener("click", () => {
+    postComment(song, nicknameInput, commentInput, postButton);
+  });
+
+  commentSection.append(
+    commentHeading,
+    nicknameInput,
+    commentInput,
+    postButton,
+    commentList
+  );
+
+  card.append(
+    cover,
+    title,
+    artist,
+    details,
+    favoriteButton,
+    link,
+    commentSection
+  );
+
   results.append(card);
+
+  displayComments(song, commentList);
+
   });
 });
 const experimentResults = [
