@@ -1084,3 +1084,53 @@ button {
     overflow-wrap: anywhere;
   }
 }
+
+/* お気に入りボタンと曲を聴くリンクを横並びに */
+.song-card .favorite-button,
+.song-card > a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  margin: 8px 8px 0 0;
+  vertical-align: middle;
+}
+
+/* スマホでも横並びを維持 */
+@media (max-width: 600px) {
+  .song-card .favorite-button,
+  .song-card > a {
+    grid-column: auto;
+    justify-self: start;
+    margin: 8px 6px 0 0;
+  }
+
+  .song-card {
+    /* ボタンの配置を含め、カード内で折り返せるようにする */
+    min-width: 0;
+  }
+}
+/* コメントの投稿日時 */
+.comment-date {
+  display: block;
+  margin: 0 0 12px;
+  color: #888194;
+  font-size: 12px;
+}
+
+/* コメント削除ボタン */
+.comment-section .delete-comment-button {
+  display: block;
+  min-height: 36px;
+  margin-top: 10px;
+  padding: 7px 12px;
+  border: 1px solid #f0cccc;
+  border-radius: 9px;
+  background: #fff5f5;
+  color: #b43c3c;
+  font-size: 13px;
+}
+
+.comment-section .delete-comment-button:hover {
+  background: #ffe8e8;
+}
