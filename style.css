@@ -1134,3 +1134,238 @@ button {
 .comment-section .delete-comment-button:hover {
   background: #ffe8e8;
 }
+
+/* ===== Study Music デザイン統一 ===== */
+
+/* サイト全体 */
+body {
+  background-color: #F7F7FC;
+  color: #29283A;
+  font-family: "Noto Sans JP", sans-serif;
+  line-height: 1.7;
+}
+
+/* 曲カード */
+.song-card {
+  background-color: #FFFFFF;
+  border: 1px solid #E9E7F5;
+  border-radius: 18px;
+  padding: 18px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 14px rgba(64, 55, 120, 0.06);
+}
+
+/* ボタン共通 */
+button {
+  border-radius: 10px;
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+/* 通常のボタン */
+button:not(.delete-comment-button) {
+  border: 1px solid #E0DDF8;
+}
+
+/* マウスを乗せたとき */
+button:hover {
+  transform: translateY(-1px);
+}
+
+/* 入力欄 */
+input,
+select,
+textarea {
+  border: 1px solid #DCD9EB;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-family: inherit;
+  color: #29283A;
+  background-color: #FFFFFF;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+/* 入力欄を選択したとき */
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid #B9B3FF;
+  border-color: #6C63FF;
+}
+
+/* コメント欄 */
+.comment-section {
+  background-color: #F8F7FF;
+  border-radius: 14px;
+  padding: 14px;
+  margin-top: 16px;
+}
+
+/* コメントの区切り */
+.comment-section li {
+  border-bottom: 1px solid #E9E7F5;
+  padding: 12px 0;
+}
+
+/* コメントの日時 */
+.comment-date {
+  color: #858197;
+  font-size: 12px;
+}
+
+/* 削除ボタンは赤系で区別 */
+.comment-section .delete-comment-button {
+  background-color: #FFF1F1;
+  color: #B43C3C;
+  border: 1px solid #F0CCCC;
+  border-radius: 9px;
+}
+
+/* リンク */
+a {
+  color: #5B52D6;
+  text-underline-offset: 3px;
+}
+
+/* スマホ表示 */
+@media (max-width: 600px) {
+  .song-card {
+    padding: 12px;
+    border-radius: 14px;
+  }
+
+  input,
+  select,
+  textarea {
+    width: 100%;
+  }
+
+  button {
+    min-height: 38px;
+  }
+}
+
+/* お気に入りボタンと曲を聴くリンクを横並びにする */
+.song-card .song-actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+/* 2つの操作の余白を統一 */
+.song-card .song-actions button,
+.song-card .song-actions a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  min-height: 42px;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* お気に入りと曲を聴くボタンを横並びにする */
+.song-actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+/* ボタンとリンクの大きさをそろえる */
+.song-actions .favorite-button,
+.song-actions a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  min-height: 42px;
+  margin: 0;
+  padding: 10px 14px;
+  box-sizing: border-box;
+  border-radius: 12px;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+/* お気に入りと曲を聴くボタンの配置を修正 */
+.song-card .song-actions {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  flex-wrap: nowrap !important;
+  gap: 8px !important;
+  width: 100%;
+  margin-top: 12px;
+}
+
+/* 2つの操作を同じ高さにする */
+.song-card .song-actions .favorite-button,
+.song-card .song-actions a {
+  display: inline-flex !important;
+  flex: 0 1 auto !important;
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: 100%;
+  min-height: 42px;
+  margin: 0 !important;
+  padding: 8px 10px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  white-space: nowrap;
+  font-size: 13px;
+  box-sizing: border-box;
+}
+
+/* お気に入りの文字が長い場合も収める */
+.song-card .song-actions .favorite-button {
+  flex-shrink: 1 !important;
+}
+
+/* お気に入りと曲を聴くリンクの配置 */
+.song-card .song-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 8px;
+  width: 100%;
+  min-width: 0;
+  margin-top: 10px;
+}
+
+/* 2つのボタンの大きさを調整 */
+.song-card .song-actions .favorite-button,
+.song-card .song-actions a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 42px;
+  margin: 0;
+  padding: 8px 12px;
+  box-sizing: border-box;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+/* スマホではボタンの場所を横幅いっぱい確保 */
+@media (max-width: 600px) {
+  .song-card .song-actions {
+    grid-column: 1 / -1;
+  }
+}
