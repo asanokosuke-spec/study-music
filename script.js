@@ -164,7 +164,7 @@ const commentsCollection = collection(db, "comments");
 
 // コメントを表示する
 
-function displayComments(song, commentList) {
+function displayComments(song, commentList, commentHeading) {
   const commentsQuery = query(
     commentsCollection,
     where("songId", "==", song.title)
@@ -191,7 +191,8 @@ function displayComments(song, commentList) {
           const timeB = b.createdAt?.toMillis?.() ?? 0;
           return timeB - timeA;
         });
-
+        commentHeading.textContent =
+        `💬 みんなのコメント（${comments.length}件）`;
       if (comments.length === 0) {
         const message = document.createElement("p");
         message.textContent = "まだコメントはありません。";
@@ -208,7 +209,50 @@ function displayComments(song, commentList) {
 
         const text = document.createElement("p");
         text.textContent = comment.text;
+        
+        // 投稿日時
+        const date = document.createElement("time");
+        date.className = "comment-date";
 
+        const postedAt = comment.createdAt?.toDate?.();
+
+        if (postedAt) {
+           date.dateTime = postedAt.toISOString();
+           date.textContent = new Intl.DateTimeFormat("ja-JP", {
+             year: "numeric",
+             month: "2-digit",
+             day: "2-digit",
+             hour: "2-digit",
+             minute: "2-digit"
+           }).format(postedAt);
+        } else {
+          date.textContent = "日時を取得中…";
+      }
+      // 自分のコメントだけ削除ボタンを表示
+      let deleteButton = null;
+
+      if (currentUser && comment.userId === currentUser.uid) {
+        deleteButton = document.createElement("button");
+        deleteButton.type = "button";
+        deleteButton.className = "delete-comment-button";
+        deleteButton.textContent = "🗑 コメントを削除";
+
+        deleteButton.addEventListener("click", async () => {
+          if (!confirm("このコメントを削除しますか？")) {
+            return;
+      }
+
+      deleteButton.disabled = true;
+
+      try {
+        await deleteDoc(doc(db, "comments", comment.id));
+      } catch (error) {
+        console.error("コメント削除エラー:", error);
+        alert("削除できませんでした。");
+        deleteButton.disabled = false;
+      }
+      });
+      }
         // いいねボタン
         const likeButton = document.createElement("button");
         likeButton.type = "button";
@@ -298,10 +342,13 @@ function displayComments(song, commentList) {
         item.append(
           nickname,
           text,
+          date,
           likeButton,
           likeCount
         );
-
+        if (deleteButton) {
+          item.append(deleteButton);
+       }
         commentList.append(item);
       });
     },
@@ -343,6 +390,7 @@ async function postComment(song, nicknameInput, commentInput, postButton) {
       songId: song.title,
       nickname,
       text,
+      userId: currentUser.uid,
       createdAt: serverTimestamp()
     });
 
@@ -556,7 +604,7 @@ cover.onerror = () => {
 
   results.append(card);
 
-  displayComments(song, commentList);
+  displayComments(song, commentList, commentHeading);
 
   });
 });
