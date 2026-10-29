@@ -996,3 +996,91 @@ button {
   display: block;
   margin-top: 14px;
 }
+
+/* ===== スマホ向け・コンパクトな曲カード ===== */
+@media (max-width: 600px) {
+  .song-card {
+    display: grid;
+    grid-template-columns: 100px minmax(0, 1fr);
+    column-gap: 14px;
+    row-gap: 6px;
+    align-items: start;
+    width: 100%;
+    min-width: 0;
+    padding: 14px;
+    margin: 0 0 16px;
+    border-radius: 16px;
+  }
+
+  /* ジャケットを左側に配置 */
+  .song-cover {
+    grid-column: 1;
+    grid-row: 1 / span 4;
+    width: 100px;
+    height: 100px;
+    margin: 0;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  /* 曲名・アーティスト・詳細を右側に */
+  .song-card h3,
+  .song-artist,
+  .song-details {
+    grid-column: 2;
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .song-card h3 {
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.4;
+  }
+
+  .song-artist,
+  .song-details {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  /* ボタンとリンクは読みやすい幅で配置 */
+  .song-card .favorite-button,
+  .song-card > a {
+    grid-column: 1 / -1;
+    justify-self: start;
+    margin-top: 6px;
+  }
+
+  .song-card button,
+  .song-card a {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  /* コメント欄はカードの横幅いっぱい */
+  .song-card .comment-section {
+    grid-column: 1 / -1;
+    width: 100%;
+    min-width: 0;
+    margin-top: 8px;
+    padding: 10px;
+  }
+
+  .song-card .comment-content {
+    min-width: 0;
+  }
+
+  .song-card input,
+  .song-card textarea {
+    width: 100%;
+    min-width: 0;
+    font-size: 16px;
+  }
+
+  .song-card .comment-item {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+}
