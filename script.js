@@ -592,15 +592,26 @@ cover.onerror = () => {
     commentContent
   );
 
+  
+    // お気に入りと曲を聴くリンクをまとめる
+  const songActions = document.createElement("div");
+  songActions.className = "song-actions";
+
+  songActions.append(
+    favoriteButton,
+    link
+  );
+
+  // 曲カードに各要素を配置
   card.append(
     cover,
     title,
     artist,
     details,
-    favoriteButton,
-    link,
+    songActions,
     commentSection
   );
+
 
   results.append(card);
 
