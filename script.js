@@ -133,15 +133,211 @@ const songs = [
     tasks: ["計算", "テスト"],
     image: "images/song-h.jpg",
     url: "https://open.spotify.com/"
+  },
+  {
+    title: "サンプル曲I",
+    artist: "サンプルアーティストI",
+    bpm: 115,
+    tempo: "medium",
+    genre: "洋楽",
+    vocal: "男性",
+    tasks: ["暗記", "読解"],
+    image: "images/song-i.jpg",
+    url: "https://open.spotify.com/"
+  },
+  {
+    title: "サンプル曲J",
+    artist: "サンプルアーティストJ",
+    bpm: 120,
+    tempo: "medium",
+    genre: "J-POP",
+    vocal: "女性",
+    tasks: ["計算", "テスト"],
+    image: "images/song-j.jpg",
+    url: "https://open.spotify.com/"
+  },
+  {
+    title: "サンプル曲K",
+    artist: "サンプルアーティストK",
+    bpm: 110,
+    tempo: "slow",
+    genre: "J-POP",
+    vocal: "男性",
+    tasks: ["暗記", "読解"],
+    image: "images/song-k.jpg",
+    url: "https://open.spotify.com/"
+  },
+  {
+    title: "サンプル曲L",
+    artist: "サンプルアーティストL",
+    bpm: 130,
+    tempo: "fast",
+    genre: "J-POP",
+    vocal: "女性",
+    tasks: ["計算", "テスト"],
+    image: "images/song-l.jpg",
+    url: "https://open.spotify.com/"
+  },
+  {
+    title: "サンプル曲M",
+    artist: "サンプルアーティストM",
+    bpm: 125,
+    tempo: "fast",
+    genre: "J-POP",
+    vocal: "男性",
+    tasks: ["計算", "テスト"],
+    image: "images/song-m.jpg",
+    url: "https://open.spotify.com/"
+  },
+  {
+    title: "サンプル曲N",
+    artist: "サンプルアーティストN",
+    bpm: 120,
+    tempo: "medium",
+    genre: "J-POP",
+    vocal: "女性",
+    tasks: ["計算", "テスト"],
+    image: "images/song-n.jpg",
+    url: "https://open.spotify.com/"
+  },
+  {
+    title: "サンプル曲O",
+    artist: "サンプルアーティストO",
+    bpm: 125,
+    tempo: "fast",
+    genre: "J-POP",
+    vocal: "男性",
+    tasks: ["計算", "テスト"],
+    image: "images/song-o.jpg",
+    url: "https://open.spotify.com/"
+  },
+  {
+    title: "サンプル曲P",
+    artist: "サンプルアーティストP",
+    bpm: 120,
+    tempo: "medium",
+    genre: "J-POP",
+    vocal: "女性",
+    tasks: ["計算", "テスト"],
+    image: "images/song-p.jpg",
+    url: "https://open.spotify.com/"
+  },
+  {
+    title: "サンプル曲Q",
+    artist: "サンプルアーティストQ",
+    bpm: 115,
+    tempo: "medium",
+    genre: "洋楽",
+    vocal: "男性",
+    tasks: ["暗記", "読解"],
+    image: "images/song-q.jpg",
+    url: "https://open.spotify.com/"
+  },
+  {
+    title: "サンプル曲R",
+    artist: "サンプルアーティストR",
+    bpm: 120,
+    tempo: "medium",
+    genre: "J-POP",
+    vocal: "女性",
+    tasks: ["計算", "テスト"],
+    image: "images/song-r.jpg",
+    url: "https://open.spotify.com/"
+  },
+  {
+    title: "サンプル曲S",
+    artist: "サンプルアーティストS",
+    bpm: 110,
+    tempo: "slow",
+    genre: "J-POP",
+    vocal: "男性",
+    tasks: ["暗記", "読解"],
+    image: "images/song-s.jpg",
+    url: "https://open.spotify.com/"
+  },
+  {
+    title: "サンプル曲T",
+    artist: "サンプルアーティストT",
+    bpm: 125,
+    tempo: "fast",
+    genre: "J-POP",
+    vocal: "女性",
+    tasks: ["計算", "テスト"],
+    image: "images/song-t.jpg",
+    url: "https://open.spotify.com/"
+  },
+  {
+    title: "サンプル曲U",
+    artist: "サンプルアーティストU",
+    bpm: 110,
+    tempo: "slow",
+    genre: "J-POP",
+    vocal: "男性",
+    tasks: ["暗記", "読解"],
+    image: "images/song-u.jpg",
+    url: "https://open.spotify.com/"
+  },
+  {
+    title: "サンプル曲V",
+    artist: "サンプルアーティストV",
+    bpm: 120,
+    tempo: "medium",
+    genre: "J-POP",
+    vocal: "女性",
+    tasks: ["計算", "テスト"],
+    image: "images/song-v.jpg",
+    url: "https://open.spotify.com/"
+  },
+  {
+    title: "サンプル曲W",
+    artist: "サンプルアーティストW",
+    bpm: 115,
+    tempo: "medium",
+    genre: "洋楽",
+    vocal: "男性",
+    tasks: ["暗記", "読解"],
+    image: "images/song-w.jpg",
+    url: "https://open.spotify.com/"
+  },
+  {
+    title: "サンプル曲X",
+    artist: "サンプルアーティストX",
+    bpm: 120,
+    tempo: "medium",
+    genre: "J-POP",
+    vocal: "女性",
+    tasks: ["計算", "テスト"],
+    image: "images/song-x.jpg",
+    url: "https://open.spotify.com/"
+  },
+  {
+    title: "サンプル曲Y",
+    artist: "サンプルアーティストY",
+    bpm: 115,
+    tempo: "medium",
+    genre: "洋楽",
+    vocal: "男性",
+    tasks: ["暗記", "読解"],
+    image: "images/song-y.jpg",
+    url: "https://open.spotify.com/"
+  },
+  {
+    title: "サンプル曲Z",
+    artist: "サンプルアーティストZ",
+    bpm: 120,
+    tempo: "medium",
+    genre: "J-POP",
+    vocal: "女性",
+    tasks: ["計算", "テスト"],
+    image: "images/song-z.jpg",
+    url: "https://open.spotify.com/"
   }
 ];
 let showFavoritesOnly = false;
 
 const showAllButton = document.querySelector("#showAllButton");
 const showFavoritesButton = document.querySelector("#showFavoritesButton");
-/* お気に入り機能 */
 
-// 保存済みのお気に入りを読み込む
 const FAVORITES_KEY = "studyMusicFavorites";
 
 let favoriteTitles = new Set(
@@ -150,7 +346,6 @@ let favoriteTitles = new Set(
   )
 );
 
-// お気に入りを保存する
 function saveFavorites() {
   localStorage.setItem(
     FAVORITES_KEY,
@@ -162,7 +357,6 @@ const searchButton = document.querySelector("#searchButton");
 
 const commentsCollection = collection(db, "comments");
 
-// コメントを表示する
 
 function displayComments(song, commentList, commentHeading) {
   const commentsQuery = query(
@@ -173,7 +367,6 @@ function displayComments(song, commentList, commentHeading) {
   const unsubscribeComments = onSnapshot(
     commentsQuery,
     (snapshot) => {
-      // 古いいいねの監視を停止
       commentList._unsubscribeLikes?.forEach(unsubscribe => {
         unsubscribe();
       });
@@ -210,7 +403,6 @@ function displayComments(song, commentList, commentHeading) {
         const text = document.createElement("p");
         text.textContent = comment.text;
         
-        // 投稿日時
         const date = document.createElement("time");
         date.className = "comment-date";
 
@@ -228,7 +420,6 @@ function displayComments(song, commentList, commentHeading) {
         } else {
           date.textContent = "日時を取得中…";
       }
-      // 自分のコメントだけ削除ボタンを表示
       let deleteButton = null;
 
       if (currentUser && comment.userId === currentUser.uid) {
@@ -240,26 +431,24 @@ function displayComments(song, commentList, commentHeading) {
         deleteButton.addEventListener("click", async () => {
           if (!confirm("このコメントを削除しますか？")) {
             return;
-      }
+          }
 
-      deleteButton.disabled = true;
+          deleteButton.disabled = true;
 
-      try {
-        await deleteDoc(doc(db, "comments", comment.id));
-      } catch (error) {
-        console.error("コメント削除エラー:", error);
-        alert("削除できませんでした。");
-        deleteButton.disabled = false;
+          try {
+            await deleteDoc(doc(db, "comments", comment.id));
+          } catch (error) {
+            console.error("コメント削除エラー:", error);
+            alert("削除できませんでした。");
+            deleteButton.disabled = false;
+          }
+        });
       }
-      });
-      }
-        // いいねボタン
         const likeButton = document.createElement("button");
         likeButton.type = "button";
         likeButton.className = "like-button";
         likeButton.textContent = "♡ いいね";
 
-        // いいね数
         const likeCount = document.createElement("span");
         likeCount.className = "like-count";
         likeCount.textContent = "0 いいね";
@@ -305,7 +494,6 @@ function displayComments(song, commentList, commentHeading) {
           }
         });
 
-        // いいね数と、自分が押したかどうかを監視
         const likesCollection = collection(
           db,
           "comments",
@@ -363,7 +551,6 @@ function displayComments(song, commentList, commentHeading) {
 }
 
 
-// コメントを投稿する
 async function postComment(song, nicknameInput, commentInput, postButton) {
   const nickname = nicknameInput.value.trim();
   const text = commentInput.value.trim();
@@ -454,7 +641,6 @@ searchButton.addEventListener("click", () => {
   const card = document.createElement("article");
   card.className = "song-card";
 
-  // ジャケット画像
   const cover = document.createElement("img");
   cover.className = "song-cover";
 cover.src = song.image || "images/default-cover.jpg";
@@ -469,33 +655,27 @@ cover.onerror = () => {
 };  cover.alt = `${song.title}のジャケット画像`;
   cover.loading = "lazy";
 
-  // 曲名
   const title = document.createElement("h3");
   title.textContent = song.title;
 
-  // アーティスト名
   const artist = document.createElement("p");
   artist.className = "song-artist";
   artist.textContent = song.artist;
 
-  // 曲の情報
   const details = document.createElement("p");
   details.className = "song-details";
   details.textContent =
     `BPM ${song.bpm} · ${song.genre} · ${song.vocal}ボーカル`;
 
-  // 配信ページへのリンク
   const link = document.createElement("a");
   link.href = song.url;
   link.textContent = "曲を聴く ↗";
   link.target = "_blank";
   link.rel = "noopener noreferrer";
 
-  // お気に入りボタンを作る
   const favoriteButton = document.createElement("button");
   favoriteButton.className = "favorite-button";
 
-  // 登録済みならハートを塗りつぶす
   function updateFavoriteButton() {
     const isFavorite = favoriteTitles.has(song.title);
 
@@ -514,7 +694,6 @@ cover.onerror = () => {
     );
   }
 
-  // クリックで登録・解除
   favoriteButton.addEventListener("click", () => {
     if (favoriteTitles.has(song.title)) {
       favoriteTitles.delete(song.title);
@@ -530,17 +709,14 @@ cover.onerror = () => {
 
 
 
-  // コメント欄
   const commentSection = document.createElement("section");
   commentSection.className = "comment-section";
 
-  // 開閉ボタン
   const toggleCommentsButton = document.createElement("button");
   toggleCommentsButton.type = "button";
   toggleCommentsButton.className = "toggle-comments-button";
   toggleCommentsButton.textContent = "💬 みんなのコメントを開く";
 
-  // コメント欄の中身をまとめる
   const commentContent = document.createElement("div");
   commentContent.className = "comment-content";
   commentContent.hidden = true;
@@ -569,7 +745,6 @@ cover.onerror = () => {
     postComment(song, nicknameInput, commentInput, postButton);
   });
 
-  // 開く・閉じる
   toggleCommentsButton.addEventListener("click", () => {
     const isOpening = commentContent.hidden;
     commentContent.hidden = !isOpening;
@@ -593,7 +768,6 @@ cover.onerror = () => {
   );
 
   
-    // お気に入りと曲を聴くリンクをまとめる
   const songActions = document.createElement("div");
   songActions.className = "song-actions";
 
@@ -602,7 +776,6 @@ cover.onerror = () => {
     link
   );
 
-  // 曲カードに各要素を配置
   card.append(
     cover,
     title,
