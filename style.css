@@ -1,4 +1,3 @@
-
 * {
   box-sizing: border-box;
 }
@@ -304,7 +303,6 @@ footer {
   }
 }
 
-/* 検索欄を2列に並べる */
 .filter-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -321,7 +319,6 @@ footer {
   font-size: 13px;
 }
 
-/* スマホでは1列に戻す */
 @media (max-width: 600px) {
   .filter-grid {
     grid-template-columns: 1fr;
@@ -329,7 +326,6 @@ footer {
   }
 }
 
-/* 曲カードの画像 */
 .song-cover {
   display: block;
   width: 100%;
@@ -340,7 +336,6 @@ footer {
   background: linear-gradient(135deg, #dce7ff, #e9ddff);
 }
 
-/* 曲名 */
 .song-card h3 {
   margin: 0 0 5px;
   color: #263767;
@@ -348,14 +343,12 @@ footer {
   line-height: 1.5;
 }
 
-/* アーティスト名 */
 .song-card .song-artist {
   margin: 0 0 12px;
   color: #7e89a4;
   font-size: 13px;
 }
 
-/* 曲の特徴 */
 .song-card .song-details {
   display: inline-block;
   margin: 0 0 12px;
@@ -366,7 +359,6 @@ footer {
   font-size: 11px;
 }
 
-/* リンクをボタン風に */
 .song-card a {
   display: block;
   text-align: center;
@@ -384,7 +376,6 @@ footer {
   transform: translateY(-1px);
 }
 
-/* お気に入りボタン */
 .song-card .favorite-button {
   width: 100%;
   margin: 10px 0 0;
@@ -412,14 +403,12 @@ footer {
   box-shadow: none;
 }
 
-/* お気に入り登録済み */
 .song-card .favorite-button.is-favorite {
   background: #fff0f4;
   border-color: #ffd3df;
   color: #e34e78;
 }
 
-/* ===== 検索結果のレイアウト ===== */
 
 #results {
   display: grid;
@@ -429,7 +418,6 @@ footer {
   align-items: stretch;
 }
 
-/* ===== 曲カード ===== */
 
 .song-card {
   min-width: 0;
@@ -452,7 +440,6 @@ footer {
   box-shadow: 0 14px 30px rgba(65, 80, 145, 0.13);
 }
 
-/* ジャケット画像 */
 
 .song-cover {
   display: block;
@@ -464,7 +451,6 @@ footer {
   background: linear-gradient(135deg, #e1e9ff, #f0e5ff);
 }
 
-/* 曲名 */
 
 .song-card h3 {
   margin: 0 0 5px;
@@ -474,7 +460,6 @@ footer {
   overflow-wrap: anywhere;
 }
 
-/* アーティスト名 */
 
 .song-card .song-artist {
   margin: 0 0 12px;
@@ -482,7 +467,6 @@ footer {
   font-size: 13px;
 }
 
-/* BPMやジャンル */
 
 .song-card .song-details {
   display: inline-block;
@@ -495,7 +479,6 @@ footer {
   line-height: 1.6;
 }
 
-/* 配信リンク */
 
 .song-card a {
   display: block;
@@ -515,7 +498,6 @@ footer {
   background: #e1e7ff;
 }
 
-/* お気に入りボタン */
 
 .song-card .favorite-button {
   width: 100%;
@@ -546,7 +528,6 @@ footer {
   color: #e34e78;
 }
 
-/* タブレット */
 
 @media (max-width: 850px) {
   #results {
@@ -555,7 +536,6 @@ footer {
   }
 }
 
-/* スマートフォン */
 
 @media (max-width: 520px) {
   #results {
@@ -568,7 +548,6 @@ footer {
   }
 }
 
-/* ===== ヘッダー ===== */
 
 .site-header {
   position: relative;
@@ -640,7 +619,6 @@ footer {
   font-weight: bold;
 }
 
-/* コメント欄全体 */
 .comment-section {
   margin-top: 20px;
   padding: 18px;
@@ -649,14 +627,12 @@ footer {
   border-radius: 16px;
 }
 
-/* コメント欄の見出し */
 .comment-section h4 {
   margin: 0 0 14px;
   color: #4b3b80;
   font-size: 17px;
 }
 
-/* ニックネーム入力欄 */
 .comment-section input[type="text"] {
   display: block;
   width: 100%;
@@ -669,7 +645,6 @@ footer {
   font: inherit;
 }
 
-/* コメント入力欄 */
 .comment-section textarea {
   display: block;
   width: 100%;
@@ -683,14 +658,12 @@ footer {
   resize: vertical;
 }
 
-/* 入力欄を選択したとき */
 .comment-section input:focus,
 .comment-section textarea:focus {
   outline: 2px solid #a99be8;
   border-color: transparent;
 }
 
-/* 投稿ボタン */
 .comment-section button {
   padding: 10px 16px;
   border: none;
@@ -710,14 +683,12 @@ footer {
   cursor: not-allowed;
 }
 
-/* コメント一覧 */
 .comment-list {
   display: grid;
   gap: 10px;
   margin-top: 16px;
 }
 
-/* コメント1件ずつのカード */
 .comment-item {
   padding: 13px;
   background: #fff;
@@ -726,21 +697,18 @@ footer {
   overflow-wrap: anywhere;
 }
 
-/* ニックネーム */
 .comment-item strong {
   display: block;
   margin-bottom: 6px;
   color: #5940ad;
 }
 
-/* コメント本文 */
 .comment-item p {
   margin: 0;
   line-height: 1.6;
   white-space: pre-wrap;
 }
 
-/* ===== コメント欄のデザイン改善 ===== */
 
 .comment-section {
   margin-top: 20px;
@@ -837,7 +805,6 @@ footer {
   white-space: pre-wrap;
 }
 
-/* いいねボタン */
 .comment-section .like-button {
   min-height: 38px;
   padding: 7px 12px;
@@ -865,7 +832,6 @@ footer {
   font-size: 13px;
 }
 
-/* ===== スマホ対応 ===== */
 
 * {
   box-sizing: border-box;
@@ -927,7 +893,6 @@ button {
   }
 }
 
-/* スマホで曲カードをコンパクトにする */
 @media (max-width: 600px) {
   .song-card {
     width: 100%;
@@ -968,7 +933,6 @@ button {
   }
 }
 
-/* コメント欄の開閉ボタン */
 .toggle-comments-button {
   display: block;
   width: 100%;
@@ -987,7 +951,6 @@ button {
   background: #e4dcff;
 }
 
-/* 折りたたんだ内容 */
 .comment-content[hidden] {
   display: none !important;
 }
@@ -997,7 +960,6 @@ button {
   margin-top: 14px;
 }
 
-/* ===== スマホ向け・コンパクトな曲カード ===== */
 @media (max-width: 600px) {
   .song-card {
     display: grid;
@@ -1012,7 +974,6 @@ button {
     border-radius: 16px;
   }
 
-  /* ジャケットを左側に配置 */
   .song-cover {
     grid-column: 1;
     grid-row: 1 / span 4;
@@ -1023,7 +984,6 @@ button {
     border-radius: 10px;
   }
 
-  /* 曲名・アーティスト・詳細を右側に */
   .song-card h3,
   .song-artist,
   .song-details {
@@ -1045,7 +1005,6 @@ button {
     line-height: 1.5;
   }
 
-  /* ボタンとリンクは読みやすい幅で配置 */
   .song-card .favorite-button,
   .song-card > a {
     grid-column: 1 / -1;
@@ -1059,7 +1018,6 @@ button {
     overflow-wrap: anywhere;
   }
 
-  /* コメント欄はカードの横幅いっぱい */
   .song-card .comment-section {
     grid-column: 1 / -1;
     width: 100%;
@@ -1085,7 +1043,6 @@ button {
   }
 }
 
-/* お気に入りボタンと曲を聴くリンクを横並びに */
 .song-card .favorite-button,
 .song-card > a {
   display: inline-flex;
@@ -1096,7 +1053,6 @@ button {
   vertical-align: middle;
 }
 
-/* スマホでも横並びを維持 */
 @media (max-width: 600px) {
   .song-card .favorite-button,
   .song-card > a {
@@ -1106,11 +1062,10 @@ button {
   }
 
   .song-card {
-    /* ボタンの配置を含め、カード内で折り返せるようにする */
     min-width: 0;
   }
 }
-/* コメントの投稿日時 */
+
 .comment-date {
   display: block;
   margin: 0 0 12px;
@@ -1118,7 +1073,6 @@ button {
   font-size: 12px;
 }
 
-/* コメント削除ボタン */
 .comment-section .delete-comment-button {
   display: block;
   min-height: 36px;
@@ -1135,9 +1089,6 @@ button {
   background: #ffe8e8;
 }
 
-/* ===== Study Music デザイン統一 ===== */
-
-/* サイト全体 */
 body {
   background-color: #F7F7FC;
   color: #29283A;
@@ -1145,7 +1096,6 @@ body {
   line-height: 1.7;
 }
 
-/* 曲カード */
 .song-card {
   background-color: #FFFFFF;
   border: 1px solid #E9E7F5;
@@ -1155,7 +1105,6 @@ body {
   box-shadow: 0 4px 14px rgba(64, 55, 120, 0.06);
 }
 
-/* ボタン共通 */
 button {
   border-radius: 10px;
   font-family: inherit;
@@ -1164,17 +1113,14 @@ button {
   transition: background-color 0.2s, transform 0.2s;
 }
 
-/* 通常のボタン */
 button:not(.delete-comment-button) {
   border: 1px solid #E0DDF8;
 }
 
-/* マウスを乗せたとき */
 button:hover {
   transform: translateY(-1px);
 }
 
-/* 入力欄 */
 input,
 select,
 textarea {
@@ -1188,7 +1134,6 @@ textarea {
   max-width: 100%;
 }
 
-/* 入力欄を選択したとき */
 input:focus,
 select:focus,
 textarea:focus {
@@ -1196,7 +1141,6 @@ textarea:focus {
   border-color: #6C63FF;
 }
 
-/* コメント欄 */
 .comment-section {
   background-color: #F8F7FF;
   border-radius: 14px;
@@ -1204,19 +1148,16 @@ textarea:focus {
   margin-top: 16px;
 }
 
-/* コメントの区切り */
 .comment-section li {
   border-bottom: 1px solid #E9E7F5;
   padding: 12px 0;
 }
 
-/* コメントの日時 */
 .comment-date {
   color: #858197;
   font-size: 12px;
 }
 
-/* 削除ボタンは赤系で区別 */
 .comment-section .delete-comment-button {
   background-color: #FFF1F1;
   color: #B43C3C;
@@ -1224,13 +1165,11 @@ textarea:focus {
   border-radius: 9px;
 }
 
-/* リンク */
 a {
   color: #5B52D6;
   text-underline-offset: 3px;
 }
 
-/* スマホ表示 */
 @media (max-width: 600px) {
   .song-card {
     padding: 12px;
@@ -1248,7 +1187,6 @@ a {
   }
 }
 
-/* お気に入りボタンと曲を聴くリンクを横並びにする */
 .song-card .song-actions {
   display: flex;
   flex-direction: row;
@@ -1259,7 +1197,6 @@ a {
   margin-top: 12px;
 }
 
-/* 2つの操作の余白を統一 */
 .song-card .song-actions button,
 .song-card .song-actions a {
   display: inline-flex;
@@ -1271,7 +1208,6 @@ a {
   box-sizing: border-box;
 }
 
-/* お気に入りと曲を聴くボタンを横並びにする */
 .song-actions {
   display: flex;
   flex-direction: row;
@@ -1282,7 +1218,6 @@ a {
   margin-top: 12px;
 }
 
-/* ボタンとリンクの大きさをそろえる */
 .song-actions .favorite-button,
 .song-actions a {
   display: inline-flex;
@@ -1298,7 +1233,6 @@ a {
   text-decoration: none;
 }
 
-/* お気に入りと曲を聴くボタンの配置を修正 */
 .song-card .song-actions {
   display: flex !important;
   flex-direction: row !important;
@@ -1310,7 +1244,6 @@ a {
   margin-top: 12px;
 }
 
-/* 2つの操作を同じ高さにする */
 .song-card .song-actions .favorite-button,
 .song-card .song-actions a {
   display: inline-flex !important;
@@ -1329,12 +1262,10 @@ a {
   box-sizing: border-box;
 }
 
-/* お気に入りの文字が長い場合も収める */
 .song-card .song-actions .favorite-button {
   flex-shrink: 1 !important;
 }
 
-/* お気に入りと曲を聴くリンクの配置 */
 .song-card .song-actions {
   display: flex;
   align-items: center;
@@ -1346,7 +1277,6 @@ a {
   margin-top: 10px;
 }
 
-/* 2つのボタンの大きさを調整 */
 .song-card .song-actions .favorite-button,
 .song-card .song-actions a {
   display: inline-flex;
@@ -1363,7 +1293,6 @@ a {
   overflow-wrap: anywhere;
 }
 
-/* スマホではボタンの場所を横幅いっぱい確保 */
 @media (max-width: 600px) {
   .song-card .song-actions {
     grid-column: 1 / -1;
